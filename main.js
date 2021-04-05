@@ -18,6 +18,8 @@ const reportatutPahikset = new Set();
 const pahikset = new Set()
 let kiroilijaLista = [];
 
+const reportIngore = 60000;
+
 //jotain selvitän myöhemmin, ilmeisesti etsitään kansiosta js filejä ja pistetään commandFiles variableen
 const fs = require("fs");
 const { setTimeout } = require("timers");
@@ -59,7 +61,7 @@ client.on("message", message => {
             reportedSpammers.add(message.author.id)
             setTimeout(() => {
                 reportedSpammers.delete(message.author.id)
-            }, 10000);
+            }, reportIngore);
         }
     }
 
@@ -77,7 +79,7 @@ client.on("message", message => {
                         reportatutPahikset.add(message.author.id)
                         setTimeout(() => {
                             reportatutPahikset.delete(message.author.id)
-                        }, 10000);
+                        }, reportIngore);
                     }
                 }
             }
