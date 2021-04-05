@@ -114,9 +114,10 @@ client.on("message", message => {
     // } else if(command == "suoraspam"){
     //     client.commands.get("spamEmbed").execute(message, Discord, client, channelID);
     // }
+    }
     
     
 })
 
 
-client.login("ODIzNjI3NTk0NzQxODQxOTMy.YFjk-A.YdrpB8Q96zbErwOj6Dp7ftkETU0");
+client.login(process.env.token);
