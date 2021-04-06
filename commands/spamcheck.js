@@ -31,7 +31,7 @@ module.exports = {
             spammers.add(message.author.id)
             // message.channel.send("eka lisätty"); 
             allUsers.push([message.author.id, 1])          
-            console.log(currentUser + "eka");
+            console.log(message.author.username + "eka");
         }
     
         for (let i = 0; i < allUsers.length; i++) {
