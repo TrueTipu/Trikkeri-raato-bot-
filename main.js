@@ -68,16 +68,17 @@ client.on("message", message => {
         }
     }
 
+    let sanat = message.content.toLowerCase();
     //kielenkäyttö
     while (true)
     {
         let breaking = false;
-        let args = message.content.toLowerCase();
+
         for (let index = 0; index < kirosanat.length; index++) {
             const kirosana = kirosanat[index];
-            if(args.includes(kirosana)){
-                args = args.slice(kirosana.length)
-                console.log("Kiroilu" + args);
+            if(sanat.includes(kirosana)){
+                sanat = sanat.slice(kirosana.length)
+                console.log("Kiroilu" + sanat);
                 if(!reportatutPahikset.has(message.author.id)){
                     if(client.commands.get("spam").execute(message, pahikset, kiroilijaLista, 5, 300000)){
                         client.commands.get("pahis").execute(message, Discord, client, channelID);
