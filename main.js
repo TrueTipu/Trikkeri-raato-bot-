@@ -71,6 +71,7 @@ client.on("message", message => {
     //kielenkäyttö
     while (true)
     {
+        let breaking = false;
         for (let index = 0; index < kirosanat.length; index++) {
             const kirosana = kirosanat[index];
             const args = message.content.toLowerCase();
@@ -89,8 +90,13 @@ client.on("message", message => {
                 }
             }
             else{
-                break;
+                breaking = true;
             }
+        }
+        if(breaking)
+        {
+            breaking = false;
+            break;
         }
     }
 
