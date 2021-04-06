@@ -70,20 +70,17 @@ client.on("message", message => {
     //kielenkäyttö
     for (let index = 0; index < kirosanat.length; index++) {
         const kirosana = kirosanat[index];
-        const args = message.content.toLowerCase().split(/ +/);
-        for (let x = 0; x < args.length; x++) {
-            const element = args[x];
-            if(element == kirosana){
-                console.log("Kiroilu");
-                if(!reportatutPahikset.has(message.author.id)){
-                    if(client.commands.get("spam").execute(message, pahikset, kiroilijaLista, 5, 300000)){
-                        client.commands.get("pahis").execute(message, Discord, client, channelID);
-                        kiroilijaLista = []
-                        reportatutPahikset.add(message.author.id)
-                        setTimeout(() => {
-                            reportatutPahikset.delete(message.author.id)
-                        }, reportIngore);
-                    }
+        const args = message.content.toLowerCase();
+        if(args.has(kirosana)){
+            console.log("Kiroilu");
+            if(!reportatutPahikset.has(message.author.id)){
+                if(client.commands.get("spam").execute(message, pahikset, kiroilijaLista, 5, 300000)){
+                    client.commands.get("pahis").execute(message, Discord, client, channelID);
+                    kiroilijaLista = []
+                    reportatutPahikset.add(message.author.id)
+                    setTimeout(() => {
+                    reportatutPahikset.delete(message.author.id)
+                    }, reportIngore);
                 }
             }
         }
