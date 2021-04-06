@@ -72,8 +72,7 @@ client.on("message", message => {
     //kielenkäyttö
     while (true)
     {
-        let breaking = false;
-
+        let breaking;
         for (let index = 0; index < kirosanat.length; index++) {
             const kirosana = kirosanat[index];
             if(sanat.includes(kirosana)){
@@ -89,17 +88,22 @@ client.on("message", message => {
                         }, reportIngore);
                     }
                 }
-                break;
+                
             }
-            else{
+        }
+        for (let index = 0; index < kirosanat.length; index++) {
+            const kirosana = kirosanat[index];
+            if(!sanat.includes(kirosana))
+            {
+                console.log("ei kiroilua");
                 breaking = true;
             }
         }
-        if(breaking == true)
+        if(breaking)
         {
-            breaking = false;
             break;
         }
+
     }
 
 
