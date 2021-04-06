@@ -17,18 +17,21 @@ module.exports = {
             }
             else if(currentUser[1] >= limit){
                 // message.channel.send("limit rikottu == ilmoitus");
+                console.log(currentUser +" max");
                 spammers.delete(message.author.id);
                 return true;              
             }
             else{
                 // message.channel.send("lisätty");
                 currentUser[1] += 1;
+                console.log(currentUser);
             }
         }
         else{
             spammers.add(message.author.id)
             // message.channel.send("eka lisätty"); 
-            allUsers.push([message.author.id, 1])           
+            allUsers.push([message.author.id, 1])          
+            console.log(currentUser + "eka");
         }
     
         for (let i = 0; i < allUsers.length; i++) {

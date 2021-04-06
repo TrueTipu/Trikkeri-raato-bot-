@@ -8,7 +8,7 @@ const prefix = "<@!823627594741841932>";
 const prefix2 = "<@823627594741841932>"; 
 
 
-let channelID = "823946977003831296"
+let channelID;
 
 const reportedSpammers = new Set();
 const spammers = new Set()
@@ -111,7 +111,8 @@ client.on("message", message => {
     //     client.commands.get("eka").execute(message,args, Discord);
     // } else if(command == "jaa"){
     //     client.commands.get("embed").execute(message,args, Discord);
-    if(command === "setup"){
+    if(command == "setup"){
+        console.log("setup");
         channelID = client.commands.get("setup").execute(message,args, Discord);
     // } else if(command == "suoraspam"){
     //     client.commands.get("spamEmbed").execute(message, Discord, client, channelID);
