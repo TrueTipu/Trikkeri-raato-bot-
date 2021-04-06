@@ -8,7 +8,7 @@ const prefix = "<@!823627594741841932>";
 const prefix2 = "<@823627594741841932>"; 
 
 
-let channelID;
+let channelID = "656580335991259155";
 
 const reportedSpammers = new Set();
 const spammers = new Set()
