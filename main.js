@@ -76,7 +76,7 @@ client.on("message", message => {
             const kirosana = kirosanat[index];
             const args = message.content.toLowerCase();
             if(args.includes(kirosana)){
-                args.slice(kirosana.length)
+                args = args.slice(kirosana.length)
                 console.log("Kiroilu");
                 if(!reportatutPahikset.has(message.author.id)){
                     if(client.commands.get("spam").execute(message, pahikset, kiroilijaLista, 5, 300000)){
