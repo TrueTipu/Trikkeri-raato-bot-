@@ -89,12 +89,13 @@ client.on("message", message => {
                         }, reportIngore);
                     }
                 }
+                break;
             }
             else{
                 breaking = true;
             }
         }
-        if(breaking)
+        if(breaking == true)
         {
             breaking = false;
             break;
