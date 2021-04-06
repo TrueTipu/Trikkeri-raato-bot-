@@ -24,6 +24,7 @@ let clock = new Date();
 
 //jotain selvitän myöhemmin, ilmeisesti etsitään kansiosta js filejä ja pistetään commandFiles variableen
 const fs = require("fs");
+const { stringify } = require("querystring");
 const { setTimeout } = require("timers");
 
 client.commands = new Discord.Collection();
@@ -71,7 +72,7 @@ client.on("message", message => {
     for (let index = 0; index < kirosanat.length; index++) {
         const kirosana = kirosanat[index];
         const args = message.content.toLowerCase();
-        if(args.has(kirosana)){
+        if(args.includes(kirosana)){
             console.log("Kiroilu");
             if(!reportatutPahikset.has(message.author.id)){
                 if(client.commands.get("spam").execute(message, pahikset, kiroilijaLista, 5, 300000)){
