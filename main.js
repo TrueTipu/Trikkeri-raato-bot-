@@ -20,6 +20,8 @@ let kiroilijaLista = [];
 
 const reportIngore = 60000;
 
+let clock = new Date();
+
 //jotain selvitän myöhemmin, ilmeisesti etsitään kansiosta js filejä ja pistetään commandFiles variableen
 const fs = require("fs");
 const { setTimeout } = require("timers");
@@ -72,6 +74,7 @@ client.on("message", message => {
         for (let x = 0; x < args.length; x++) {
             const element = args[x];
             if(element == kirosana){
+                console.log("Kiroilu");
                 if(!reportatutPahikset.has(message.author.id)){
                     if(client.commands.get("spam").execute(message, pahikset, kiroilijaLista, 5, 300000)){
                         client.commands.get("pahis").execute(message, Discord, client, channelID);
@@ -114,6 +117,8 @@ client.on("message", message => {
     if(command == "setup"){
         console.log("setup");
         channelID = client.commands.get("setup").execute(message,args, Discord);
+    } else if(command == "kello"){
+        console.log(clock.getTime()); 
     // } else if(command == "suoraspam"){
     //     client.commands.get("spamEmbed").execute(message, Discord, client, channelID);
     // }
