@@ -91,12 +91,11 @@ client.on("message", message => {
                 
             }
         }
+        breaking = true;
         for (let index = 0; index < kirosanat.length; index++) {
             const kirosana = kirosanat[index];
-            if(!sanat.includes(kirosana))
-            {
-                console.log("ei kiroilua");
-                breaking = true;
+            if(sanat.includes(kirosana)){
+                breaking = false;
             }
         }
         if(breaking)
