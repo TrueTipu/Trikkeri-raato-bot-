@@ -74,7 +74,7 @@ client.on("message", message => {
         let breaking = false;
         for (let index = 0; index < kirosanat.length; index++) {
             const kirosana = kirosanat[index];
-            const args = message.content.toLowerCase();
+            let args = message.content.toLowerCase();
             if(args.includes(kirosana)){
                 args = args.slice(kirosana.length)
                 console.log("Kiroilu");
