@@ -7,7 +7,7 @@ module.exports = {
             let currentUser;
             for (let i = 0; i < allUsers.length; i++) {
                 const element = allUsers[i];
-                if(element = message.author.id){
+                if(element == message.author.id){
                     currentUser = element;
                 }            
             }
