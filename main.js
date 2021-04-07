@@ -78,7 +78,7 @@ client.on("message", message => {
             if(sanat.includes(kirosana)){
                 let kohta = sanat.indexOf(kirosana);
                 sanat = sanat.slice(kohta + kirosana.length);
-                console.log(sanat);
+                // console.log(sanat);
                 if(!reportatutPahikset.has(message.author.id)){
                     if(client.commands.get("spam").execute(message, pahikset, kiroilijaLista, 5, 300000)){
                         client.commands.get("pahis").execute(message, Discord, client, channelID);
