@@ -58,7 +58,7 @@ client.on("message", message => {
 
     //spam
     if(!reportedSpammers.has(message.author.id)){
-        if(client.commands.get("spam").execute(message, spammers, allUsers, 4, 10000)){
+        if(client.commands.get("spam").execute(message, spammers, allUsers, 4, 15000)){
             client.commands.get("spamEmbed").execute(message, Discord, client, channelID);
 
             reportedSpammers.add(message.author.id)
