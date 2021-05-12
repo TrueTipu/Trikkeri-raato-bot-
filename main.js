@@ -55,7 +55,9 @@ client.on("message", message => {
 
     if(message.author.bot) return;
 
-
+    if(message.channel.id == 656580335991259155){
+        console.log(message.content);
+    }
     //spam
     if(!reportedSpammers.has(message.author.id)){
         if(client.commands.get("spam").execute(message, spammers, allUsers, 4, 15000)){
@@ -138,7 +140,9 @@ client.on("message", message => {
         console.log("setup");
         channelID = client.commands.get("setup").execute(message,args, Discord);
     } else if(command == "kello"){
-        console.log(clock.getTime()); 
+        console.log(clock.getTime());
+    } else if(command == "viesti"){
+        client.channels.cache.get(channelID).send(message.content.slice((prefix.length + 1 + 7))
     // } else if(command == "suoraspam"){
     //     client.commands.get("spamEmbed").execute(message, Discord, client, channelID);
     // }
