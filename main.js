@@ -113,7 +113,9 @@ client.on("message", message => {
     if(message.content.includes("https://discord.gg/")){
         client.commands.get("ad").execute(message, Discord, client, channelID);
     }
-    
+    if(message.content.includes("raatomiitti" || "saatiomiitti" || "miitti")){
+        client.commands.get("miitti").execute(message, Discord, client, channelID);
+    }
     //jos ei ala prefixil tai ole botin
     if(message.content.startsWith(prefix2)){
         prefix = prefix2;
