@@ -142,7 +142,7 @@ client.on("message", message => {
     } else if(command == "kello"){
         console.log(clock.getTime());
     } else if(command == "viesti"){
-        client.channels.cache.get(channelID).send(message.content.slice((prefix.length + 1 + 7))
+        client.channels.cache.get(channelID).send(message.content.slice((prefix.length + 1 + 7)))
     // } else if(command == "suoraspam"){
     //     client.commands.get("spamEmbed").execute(message, Discord, client, channelID);
     // }
