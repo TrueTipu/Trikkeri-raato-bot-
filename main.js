@@ -22,6 +22,8 @@ const reportIngore = 60000;
 
 let clock = new Date();
 
+let adShown = false;
+
 //jotain selvitän myöhemmin, ilmeisesti etsitään kansiosta js filejä ja pistetään commandFiles variableen
 const fs = require("fs");
 const { stringify } = require("querystring");
@@ -112,8 +114,13 @@ client.on("message", message => {
     
 
     //mainos
-    if(message.content.includes("https://discord.gg/")){
+
+    if(message.content.includes("https://discord.gg/") && adShown == false){
         client.commands.get("ad").execute(message, Discord, client, channelID);
+        adShown = true;
+        setTimeout(() => {
+            adShown = false;
+            }, reportIngore);
     }
     if(message.content.includes("raatomiitti" || "saatiomiitti" || "miitti")){
         client.commands.get("miitti").execute(message, Discord, client, channelID);
