@@ -115,7 +115,7 @@ client.on("message", message => {
 
     //mainos
 
-    if(message.content.includes("https://discord.gg/") && adShown == false){
+    if(message.content.includes("https://discord.gg/" || "twitch.tv/mizkif") && adShown == false){
         client.commands.get("ad").execute(message, Discord, client, channelID);
         adShown = true;
         setTimeout(() => {
